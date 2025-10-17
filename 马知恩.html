@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马知恩教授 - 学术生涯时间轴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            font-family: 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin: 30px 0;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 1000px;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        
+        .profile {
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .profile-image {
+            flex: 0 0 200px;
+            margin-right: 25px;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-info h3 {
+            color: #1a2a6c;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #fdbb2d;
+            padding-bottom: 8px;
+        }
+        
+        .profile-info p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        .timeline-container {
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            color: white;
+            font-size: 2.2rem;
+            margin: 30px 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .wrap {
+            width: 100%;
+            position: relative;
+        }
+        
+        .wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c);
+            z-index: 1;
+            border-radius: 3px;
+        }
+        
+        .box {
+            position: relative;
+            width: 100%;
+            margin-bottom: 70px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+        }
+        
+        .left, .right {
+            position: relative;
+            width: 45%;
+            padding: 25px;
+            border-radius: 15px;
+            color: #333;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .left:hover, .right:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .box:nth-child(even) .left {
+            background: linear-gradient(135deg, #fdbb2d, #f8d568);
+        }
+        
+        .box:nth-child(odd) .right {
+            background: linear-gradient(135deg, #6a93ff, #1a2a6c);
+            color: white;
+        }
+        
+        .box:nth-child(even) .right {
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .box:nth-child(odd) .left {
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .center {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
+        
+        .center>span {
+            width: 120px;
+            border-radius: 10px;
+            text-align: center;
+            font: 900 24px '';
+            line-height: 50px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: #1a2a6c;
+        }
+        
+        .achievements {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .achievements h3 {
+            color: #1a2a6c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fdbb2d;
+            padding-bottom: 8px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #1a2a6c;
+        }
+        
+        .achievement-item h4 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin: 30px 0;
+            font-size: 1rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+            }
+            
+            .profile-image {
+                flex: 1;
+                margin-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            .profile-image img {
+                max-width: 200px;
+            }
+            
+            .left, .right {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+            
+            .box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .center {
+                order: -1;
+                margin-bottom: 20px;
+            }
+            
+            .wrap::after {
+                left: 30px;
+            }
+            
+            .box:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>马知恩教授</h1>
+        <h2>学术生涯与贡献时间轴</h2>
+    </div>
+    
+    <div class="profile">
+        <img src="http://www.xjtu.edu.cn/__local/2/47/42/E3963C1422FE27930A99EF7D0CA_10F4EC30_A653.jpg?e=.jpg" alt="马知恩教授">
+    </div>
+        <div class="profile-info">
+            <h3>个人简介</h3>
+            <p><strong>出生日期：</strong>1935年1月3日</p>
+            <p><strong>出生地点：</strong>山东济南</p>
+            <p><strong>毕业院校：</strong>北京大学（1954年7月）</p>
+            <p><strong>研究方向：</strong>微分动力系统与生物数学</p>
+            <p>马知恩教授是我国著名数学家、教育家和高等教育管理专家，长期致力于数学教学与科研工作，培养了大批优秀人才，为我国数学教育事业做出了卓越贡献。</p>
+        </div>
+    </div>
+    
+    <div class="timeline-container">
+        <div class="timeline-title">学术生涯时间轴</div>
+        
+        <div class="wrap">
+            <div class="box">
+                <div class="left"></div>
+                <div class="center"><span>1954</span></div>
+                <div class="right">
+                    <h3>毕业与任教</h3>
+                    <p>毕业于北京大学，随后被分配至交通大学任教，开始了他的教学生涯。</p>
+                </div>
+            </div>
+            
+            <div class="box">
+                <div class="left">
+                    <h3>交通大学西迁</h3>
+                    <p>作为第一批交通大学西迁师生，随学校由上海迁来西安，投身西部高等教育事业。</p>
+                </div>
+                <div class="center"><span>1956</span></div>
+                <div class="right"></div>
+            </div>
+            
+            <div class="box">
+                <div class="left"></div>
+                <div class="center"><span>1980s</span></div>
+                <div class="right">
+                    <h3>科研项目启动</h3>
+                    <p>承担教育部立项的教学改革项目9项，国家自然科学基金项目8项，积极开展数学教育与科研工作。</p>
+                </div>
+            </div>
+            
+            <div class="box">
+                <div class="left">
+                    <h3>国家级荣誉</h3>
+                    <p>获得全国优秀教师称号，表彰其在数学教育领域的杰出贡献。</p>
+                </div>
+                <div class="center"><span>1991</span></div>
+                <div class="right"></div>
+            </div>
+            
+            <div class="box">
+                <div class="left"></div>
+                <div class="center"><span>2003</span></div>
+                <div class="right">
+                    <h3>首届教学名师</h3>
+                    <p>荣获国家首届教学名师奖，成为全国高校教师的楷模。</p>
+                </div>
+            </div>
+            
+            <div class="box">
+                <div class="left">
+                    <h3>教师发展中心</h3>
+                    <p>担任西安交通大学教师教学发展中心首任主任，推动教师专业发展。</p>
+                </div>
+                <div class="center"><span>2011</span></div>
+                <div class="right"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="achievements">
+        <h3>主要学术成就</h3>
+        <div class="achievements-grid">
+            <div class="achievement-item">
+                <h4>教学工作</h4>
+                <p>讲授过高等数学等12门课程，培养硕士生43人，博士生11人。</p>
+            </div>
+            <div class="achievement-item">
+                <h4>科研项目</h4>
+                <p>承担国家十五攻关项目1项，教育部教学改革项目9项，国家自然科学基金项目8项。</p>
+            </div>
+            <div class="achievement-item">
+                <h4>著作论文</h4>
+                <p>出版教材10套，译著1套，专著3本，发表学术论文130余篇。</p>
+            </div>
+            <div class="achievement-item">
+                <h4>获奖荣誉</h4>
+                <p>获国家级和教育部教学奖8项，省部级科学进步奖3项（均排名第1）。</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>致敬马知恩教授 - 数学教育事业的杰出贡献者</p>
+        <p>© 2023 西安交通大学</p>
+    </div>
+</body>
+</html>
